@@ -36,6 +36,7 @@ Plug 'mlaursen/vim-react-snippets'
 
 Plug 'junegunn/goyo.vim'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme gruvbox
