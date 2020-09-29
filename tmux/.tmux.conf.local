@@ -296,4 +296,4 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g status-position top
 set -sg escape-time 0
 set -g status-interval 0
-set-option -g repeat-time 0
+set-option -g repeat-time 200
