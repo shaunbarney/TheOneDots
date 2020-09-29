@@ -9,6 +9,7 @@ set shiftwidth  =4
 set expandtab
 set spelllang   =en
 set colorcolumn =80
+set encoding=UTF-8
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let mapleader = " "
@@ -37,6 +38,12 @@ Plug 'mlaursen/vim-react-snippets'
 Plug 'junegunn/goyo.vim'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'tpope/vim-fugitive'
+Plug 'chrisbra/csv.vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'pangloss/vim-javascript'
+Plug  'chemzqm/vim-jsx-improve'
+Plug 'ryanoasis/vim-devicons'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 colorscheme gruvbox
@@ -66,6 +73,10 @@ inoremap ,. <Esc>V:s/class/className/g<cr>f>:noh<cr>a<cr><Esc>O<tab>
 
 " Airline themes
 let g:airline_theme='violet'
+"let g:NERDCustomDelimiters={
+	"\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+"\}
+let g:NERDCustomDelimiters = {'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' }}
 
 " Package imports
 source ~/.config/nvim/fzf.vim

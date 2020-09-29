@@ -159,5 +159,6 @@ let g:coc_global_extensions = [
             \'coc-snippets',
             \'coc-json',
             \'coc-yank',
-            \'coc-python'
+            \'coc-python',
+            \'coc-go',
             \]
