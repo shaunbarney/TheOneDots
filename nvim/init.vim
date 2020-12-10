@@ -10,6 +10,8 @@ set expandtab
 set spelllang   =en
 set colorcolumn =80
 set encoding=UTF-8
+set cursorline
+
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 let mapleader = " "
@@ -56,6 +58,9 @@ nnoremap <C-l> :bnext<CR>
 nnoremap <C-c> :bd<CR>
 nnoremap <leader>nh <Esc>:noh<cr>
 
+vnoremap <leader>y "+y
+nnoremap <leader>s :source ~/.config/nvim/init.vim<CR>
+
 " Snippets
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -85,3 +90,4 @@ source ~/.config/nvim/nerdtree.vim
 source ~/.config/nvim/coc-snippets.vim
 "source ~/.config/nvim/closetag.vimj
 source  ~/.config/nvim/functions.vim
+source ~/.config/nvim/go.vim
