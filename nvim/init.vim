@@ -46,6 +46,7 @@ Plug 'pangloss/vim-javascript'
 Plug  'chemzqm/vim-jsx-improve'
 Plug 'ryanoasis/vim-devicons'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 colorscheme gruvbox
@@ -58,7 +59,9 @@ nnoremap <C-l> :bnext<CR>
 nnoremap <C-c> :bd<CR>
 nnoremap <leader>nh <Esc>:noh<cr>
 
-vnoremap <leader>y "+y
+"vnoremap <leader>y "+y
+vnoremap <leader> y: call system("xclip -i", getreg("\""))<CR>
+noremap <leader> p :r !xclip -o <CR>
 nnoremap <leader>s :source ~/.config/nvim/init.vim<CR>
 
 " Snippets
@@ -84,10 +87,11 @@ let g:airline_theme='violet'
 let g:NERDCustomDelimiters = {'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' }}
 
 " Package imports
-source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/coc.vim
-source ~/.config/nvim/nerdtree.vim
-source ~/.config/nvim/coc-snippets.vim
+source ~/Documents/TheOneDots/nvim/fzf.vim
+source ~/Documents/TheOneDots/nvim/coc.vim
+source ~/Documents/TheOneDots/nvim/nerdtree.vim
+source ~/Documents/TheOneDots/nvim/coc-snippets.vim
 "source ~/.config/nvim/closetag.vimj
-source  ~/.config/nvim/functions.vim
-source ~/.config/nvim/go.vim
+source  ~/Documents/TheOneDots/nvim/functions.vim
+source ~/Documents/TheOneDots/nvim/go.vim
+

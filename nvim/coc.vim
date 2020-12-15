@@ -161,4 +161,5 @@ let g:coc_global_extensions = [
             \'coc-yank',
             \'coc-python',
             \'coc-go',
+            \'coc-html',
             \]
