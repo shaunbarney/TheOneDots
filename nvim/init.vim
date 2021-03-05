@@ -87,11 +87,11 @@ let g:airline_theme='violet'
 let g:NERDCustomDelimiters = {'javascriptreact': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' }}
 
 " Package imports
-source ~/Documents/TheOneDots/nvim/fzf.vim
-source ~/Documents/TheOneDots/nvim/coc.vim
-source ~/Documents/TheOneDots/nvim/nerdtree.vim
-source ~/Documents/TheOneDots/nvim/coc-snippets.vim
+source ~/TheOneDots/nvim/fzf.vim
+source ~/TheOneDots/nvim/coc.vim
+source ~/TheOneDots/nvim/nerdtree.vim
+source ~/TheOneDots/nvim/coc-snippets.vim
 "source ~/.config/nvim/closetag.vimj
-source  ~/Documents/TheOneDots/nvim/functions.vim
-source ~/Documents/TheOneDots/nvim/go.vim
+source  ~/TheOneDots/nvim/functions.vim
+source ~/TheOneDots/nvim/go.vim
 
