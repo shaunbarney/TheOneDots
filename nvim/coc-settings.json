@@ -1,6 +1,0 @@
-{
-  "suggest.echodocSupport": true,
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "prettier.tabWidth": 2,
-  "prettier.printWidth": 80
-}
