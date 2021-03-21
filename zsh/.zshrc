@@ -1,5 +1,6 @@
 # Aliases
-alias v="nvim"
+#alias v="nvim"
+alias v=~/Applications/nvim.appimage
 alias siy="sudo apt install -y"
 alias gs="git status"
 alias ga="git add"
@@ -14,18 +15,20 @@ alias pel="pipenv lock -r > requirements.txt"
 alias per="pipenv run"
 alias peiapi="pipenv install fastapi uvicorn loguru"
 
+alias tod="~/TheOneDots"
+
 alias ti="touch __init__.py"
 
 alias sp="sudo pacman "
 
-alias dc="sudo docker-compose"
+alias dc="docker-compose"
 
 alias copy="xclip -selection clipboard"
 
 alias open="xdg-open"
 
 alias vi3="nvim ~/.config/i3/config"
-alias viz="nvim ~/Documents/TheOneDots/zsh/.zshrc"
+alias viz="nvim ~/TheOneDots/zsh/.zshrc"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export VISUAL=vim
@@ -41,3 +44,4 @@ function cd {
     fi
   }
 
+eval "$(pyenv init -)"

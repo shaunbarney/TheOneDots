@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "source $(pwd)/zsh/.zshrc" >> ~/.zshrc
 
-sudo apt install -y nodejs npm tree git curl 
+sudo apt install -y nodejs npm tree git curl gdebi-core
 
 sudo npm install --global yarn
 
@@ -22,3 +22,8 @@ do
             cp ./tmux/$f ~/$f
         fi
 done
+
+sudo wget https://github.com/shiftkey/desktop/releases/download/release-2.1.0-linux1/GitHubDesktop-linux-2.1.0-linux1.deb
+sudo gdebi GitHubDesktop-linux-2.1.0-linux1.deb
+
+curl https://pyenv.run | zsh
