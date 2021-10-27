@@ -14,7 +14,7 @@ cmp.setup {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    -- ["<CR>"] = cmp.mapping.confirm { select = true },
     -- Right is for ghost_text to behave like terminal
     ["<Right>"] = cmp.mapping.confirm { select = true },
     -- Don't insert if I explicitly exit
