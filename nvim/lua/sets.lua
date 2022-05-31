@@ -20,5 +20,3 @@ vim.o.background = "dark"
 vim.go.termguicolors = true
 
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
-
-vim.cmd([[colorscheme gruvbox]])

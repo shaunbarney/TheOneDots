@@ -62,6 +62,7 @@ bindsym $mod+p exec i3lock -i /home/shaunb/Documents/wallpapers/lock.png
 
 # Internet browsetr
 bindsym $mod+i exec google-chrome-stable
+bindsym $mod+x exec code 
 
 # Format
 exec --no-startup-id ~/Documents/TheOneDots/i3_startup/format_screens.sh

@@ -1,17 +1,9 @@
--- completion maps (not cmp) --
--- line completion - use more!
--- inoremap <C-l> <C-x><C-l>
--- vim.api.nvim_set_keymap("i", "<c-l>", "<c-x><c-l>", { noremap = true })
--- Vim command-line completion
--- inoremap <C-v> <C-x><C-v>
--- vim.api.nvim_set_keymap("i", "<c-v>", "<c-x><c-v>", { noremap = true })
--- end non-cmp completion maps --
-
--- Setup nvim-cmp
-local cmp = require "cmp"
-
+  -- Setup nvim-cmp.
+local cmp = require'cmp'
 local lspkind = require "lspkind"
--- @TODOUA: Try cmdline again soon, lots of updates since last tried
+
+
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -22,17 +14,16 @@ cmp.setup {
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<CR>"] = cmp.mapping {
-      i = cmp.mapping.confirm { select = true },
-    },
-    ["<Right>"] = cmp.mapping {
-      i = cmp.mapping.confirm { select = true },
-    },
-    ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+    -- Right is for ghost_text to behave like terminal
+    ["<Right>"] = cmp.mapping.confirm { select = true },
+    -- Don't insert if I explicitly exit
+    -- Start completion with C-Space to have it truly clean-up
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert }, { "i" }),
-    ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert }, { "i" }),
+    -- Insert instead of Select so you don't go away at `stopinsert` after `CursorHoldI`
+    -- @TODOUA: I want to be able to `Select` without `stopinsert` killing it (& keep `stopinsert`)
+    ["<Down>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
   },
   experimental = {
     ghost_text = true,
@@ -42,7 +33,10 @@ cmp.setup {
   },
   sources = {
     -- 'crates' is lazy loaded
-    { name = "nvim_lsp" },
+    {name = 'nvim_lsp'}, {name = "ultisnips"},
+    {name = "nvim_lua"}, {name = "look"}, {name = "path"},
+    {name = 'cmp_tabnine'}, {name = "calc"}, {name = "spell"},
+    {name = "emoji"}
     { name = "treesitter" },
     { name = "vsnip" },
     { name = "path" },
@@ -54,7 +48,6 @@ cmp.setup {
         end,
       },
     },
-    { name = "spell" },
   },
   formatting = {
     format = function(entry, vim_item)

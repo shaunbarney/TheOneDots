@@ -5,9 +5,12 @@ keymap('i', 'jj', '<Esc>', opt)
 keymap('n', '<c-i>', '<Esc>:so ~/.config/nvim/init.lua<CR>', opt)
 keymap('n', '<C-h>', ':bprev<CR>', opt)
 keymap('n', '<C-l>', ':bnext<CR>', opt)
-keymap('n', '<C-c>', ':bd<CR>', opt)
+keymap('n', '<leader>c', ':bd<CR>', opt)
 keymap('n', '<leader>nh', ':noh<CR>', opt)
 keymap('n', 'Y', 'y$', opt)
+keymap('n', '<C-c>', ':tabclose<CR>', opt)
+keymap('n', 'H', ':tabprevious<CR>', opt)
+keymap('n', 'L', ':tabnext<CR>', opt)
 
 --- Center me naughty
 keymap('n', 'n', 'nzzzv', opt)
@@ -19,6 +22,7 @@ keymap('i', ',', ',<c-g>u', opt)
 keymap('i', '.', '.<c-g>u', opt)
 keymap('i', '!', '!<c-g>u', opt)
 keymap('i', '?', '?<c-g>u', opt)
+keymap('i', '<c-b>', 'mm<CR><ESC>`mi', opt)
 
 
 --- Move text
