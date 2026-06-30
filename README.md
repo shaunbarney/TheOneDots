@@ -1,6 +1,8 @@
 <div align="center">
 
-# ▟█████▙ TheOneDots
+<img src=".github/assets/logo.png" alt="TheOneDots" width="180" />
+
+# TheOneDots
 
 **My Linux dotfiles — i3 · Alacritty · tmux · Zsh · Neovim · Claude Code**
 
