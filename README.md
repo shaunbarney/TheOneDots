@@ -44,7 +44,7 @@ chezmoi apply -v              # apply
 
 | Area | Tool | Highlights |
 |------|------|-----------|
-| **WM** | i3 + i3blocks | tiling, custom status widgets, ultrawide-aware startup |
+| **WM** | i3 + i3status-rust + i3blocks | tiling, Rust status bar, custom widgets, ultrawide screen-layout + picom watchdog on startup |
 | **Terminal** | Alacritty | GPU-accelerated, Cyberdream, JetBrains Mono Nerd Font |
 | **Multiplexer** | tmux | XDG layout, Cyberdream statusline, vim-style nav |
 | **Shell** | Zsh + Powerlevel10k | instant prompt, modern CLI aliases |

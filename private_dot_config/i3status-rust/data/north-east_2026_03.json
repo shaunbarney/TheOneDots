@@ -1,0 +1,81 @@
+{
+    "format": "linked-data-api",
+    "version": "0.2",
+    "result": {
+        "_about": "http://landregistry.data.gov.uk/data/ukhpi/region/north-east/month/2026-03.json",
+        "definition": "http://landregistry.data.gov.uk/meta/data/ukhpi/region/_regionName/month/_month.json",
+        "extendedMetadataVersion": "http://landregistry.data.gov.uk/data/ukhpi/region/north-east/month/2026-03.json?_metadata=all",
+        "primaryTopic": {
+            "_about": "http://landregistry.data.gov.uk/data/ukhpi/region/north-east/month/2026-03",
+            "averagePrice": 162046,
+            "averagePriceCash": 151621,
+            "averagePriceDetached": 288173,
+            "averagePriceFirstTimeBuyer": 142003,
+            "averagePriceFlatMaisonette": 99270,
+            "averagePriceFormerOwnerOccupier": 192329,
+            "averagePriceMortgage": 167122,
+            "averagePriceSA": 163119,
+            "averagePriceSemiDetached": 169858,
+            "averagePriceTerraced": 136265,
+            "dataSet": "http://landregistry.data.gov.uk/data/ukhpi/dataset",
+            "housePriceIndex": 107.4,
+            "housePriceIndexCash": 107.2,
+            "housePriceIndexDetached": 106.6,
+            "housePriceIndexFirstTimeBuyer": 108.1,
+            "housePriceIndexFlatMaisonette": 101.1,
+            "housePriceIndexFormerOwnerOccupier": 106.8,
+            "housePriceIndexMortgage": 107.6,
+            "housePriceIndexSA": 108.2,
+            "housePriceIndexSemiDetached": 108.2,
+            "housePriceIndexTerraced": 109.1,
+            "percentageAnnualChange": -0.9,
+            "percentageAnnualChangeCash": -1.6,
+            "percentageAnnualChangeDetached": 0.9,
+            "percentageAnnualChangeFirstTimeBuyer": -1.2,
+            "percentageAnnualChangeFlatMaisonette": -7.8,
+            "percentageAnnualChangeFormerOwnerOccupier": -0.5,
+            "percentageAnnualChangeMortgage": -0.6,
+            "percentageAnnualChangeSemiDetached": 0.5,
+            "percentageAnnualChangeTerraced": -1.4,
+            "percentageChange": -0.6,
+            "percentageChangeCash": -0.6,
+            "percentageChangeDetached": -0.8,
+            "percentageChangeFirstTimeBuyer": -0.5,
+            "percentageChangeFlatMaisonette": -1.8,
+            "percentageChangeFormerOwnerOccupier": -0.6,
+            "percentageChangeMortgage": -0.5,
+            "percentageChangeSemiDetached": -0.4,
+            "percentageChangeTerraced": -0.2,
+            "refMonth": "2026-03",
+            "refPeriodDuration": 1,
+            "refPeriodStart": "Sun, 01 Mar 2026",
+            "refRegion": {
+                "_about": "http://landregistry.data.gov.uk/id/region/north-east",
+                "label": [
+                    {
+                        "_value": "North East",
+                        "_datatype": "langString",
+                        "_lang": "en"
+                    }
+                ]
+            },
+            "type": [
+                {
+                    "_about": "http://landregistry.data.gov.uk/def/ukhpi/MonthlyIndicesByRegion",
+                    "label": [
+                        {
+                            "_value": "UK house price indices",
+                            "_datatype": "langString",
+                            "_lang": "en"
+                        }
+                    ]
+                },
+                "http://purl.org/linked-data/cube#Observation"
+            ]
+        },
+        "type": [
+            "http://purl.org/linked-data/api/vocab#ItemEndpoint",
+            "http://purl.org/linked-data/api/vocab#Page"
+        ]
+    }
+}

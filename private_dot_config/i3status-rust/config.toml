@@ -1,0 +1,117 @@
+# i3status-rust configuration  —  dark purple theme
+# Docs: https://docs.rs/i3status-rs/latest/i3status_rs/blocks/index.html
+# Rendered left-to-right in the i3bar; blocks listed top-to-bottom here.
+
+icons_format = " {icon} "
+
+# ── Dark purple theme ───────────────────────────────────────────────
+[theme]
+theme = "plain"
+[theme.overrides]
+idle_bg          = "#1a1426"
+idle_fg          = "#bca7e6"
+info_bg          = "#1a1426"
+info_fg          = "#c8b3f0"
+good_bg          = "#1a1426"
+good_fg          = "#8ae0a3"
+warning_bg       = "#3a2a12"
+warning_fg       = "#f4c77b"
+critical_bg      = "#4a1530"
+critical_fg      = "#ff8fb0"
+separator        = ""
+separator_bg     = "auto"
+separator_fg     = "auto"
+alternating_tint_bg = "#0e0a17"
+alternating_tint_fg = "#000000"
+
+[icons]
+icons = "material-nf"
+
+# ── Weather (met.no, auto-located by IP — no API key) ────────────────
+[[block]]
+block = "weather"
+format = " $icon $temp $weather "
+autolocate = true
+autolocate_interval = "once"
+[block.service]
+name = "metno"
+
+# ── Network throughput ───────────────────────────────────────────────
+[[block]]
+block = "net"
+format = " $icon ↓$speed_down.eng(prefix:K) ↑$speed_up.eng(prefix:K) "
+interval = 2
+
+# ── Disk space (root) ────────────────────────────────────────────────
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+format = " $icon $available "
+alert_unit = "GB"
+warning = 20.0
+alert = 10.0
+interval = 30
+
+# ── Memory ───────────────────────────────────────────────────────────
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents "
+format_alt = " $icon_swap $swap_used_percents "
+interval = 5
+
+# ── CPU utilisation ──────────────────────────────────────────────────
+[[block]]
+block = "cpu"
+format = " $icon $utilization "
+info_cpu = 40
+warning_cpu = 75
+critical_cpu = 90
+interval = 2
+
+# ── Load average (great for builds/compiles) ─────────────────────────
+[[block]]
+block = "load"
+format = " $icon $1m "
+interval = 5
+
+# ── Temperature ──────────────────────────────────────────────────────
+[[block]]
+block = "temperature"
+format = " $icon $average "
+interval = 5
+warning = 70
+
+# ── Bluetooth (left-click opens the manager) ─────────────────────────
+[[block]]
+block = "custom"
+command = "echo '{\"icon\":\"bluetooth\",\"text\":\"\",\"state\":\"Idle\"}'"
+json = true
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "blueman-manager"
+
+# ── Bose soundbar (left-click connects; see scripts/bose_connect.sh) ──
+[[block]]
+block = "custom"
+command = "echo '{\"icon\":\"headphones\",\"text\":\"Bose\",\"state\":\"Idle\"}'"
+json = true
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/.config/i3status-rust/scripts/bose_connect.sh"
+
+# ── Volume ───────────────────────────────────────────────────────────
+[[block]]
+block = "sound"
+format = " $icon {$volume.eng(w:2) |muted }"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+# ── Date / time ──────────────────────────────────────────────────────
+[[block]]
+block = "time"
+interval = 5
+format = " 󰅐 $timestamp.datetime(f:'%a %d %b %H:%M') "
