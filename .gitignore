@@ -1,0 +1,14 @@
+# Encryption keys must never be committed.
+key.txt
+*.age
+*.key
+*.pem
+
+# The real secrets file (defensive — it lives at ~/.config/zsh/secrets.zsh,
+# outside this repo, but never let a stray copy in).
+**/secrets.zsh
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*~

@@ -1,0 +1,59 @@
+# ─────────────────────────────────────────────────────────────────────
+#  Alacritty — Cyberdream (high-contrast, vibrant)
+# ─────────────────────────────────────────────────────────────────────
+
+[general]
+import = ["~/.config/alacritty/cyberdream.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 16, y = 14 }
+dynamic_padding = true
+decorations = "none"
+# Slightly see-through so the wallpaper shows behind. Requires a
+# compositor (picom) running — see ~/.config/picom.conf + i3 autostart.
+opacity = 0.88
+blur = true
+dynamic_title = true
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[font]
+size = 13.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 600
+unfocused_hollow = true
+thickness = 0.18
+
+[scrolling]
+history = 50000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true

@@ -1,0 +1,473 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+source ~/.config/zshScripts/functions
+
+# Load private secrets (git-ignored)
+[ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
+
+alias sz="source ~/.zshrc"
+alias pc="pwd | copy"
+alias cdx="cd /home/shaun/Documents/Companies/Xenesis"
+alias cdxbu="cd /home/shaun/Documents/Companies/Xenesis/QCBackUp"
+alias cm=chezmoi
+alias cme="chezmoi edit"
+alias cmcd="chezmoi cd"
+alias cma="chezmoi add"
+alias cmd="chezmoi diff"
+alias cmap="chezmoi -v apply"
+
+alias obs="/home/shaun/Documents/programs/Obsidian-1.3.5.AppImage"
+
+alias siy="sudo apt install -y"
+
+alias gs="git status"
+alias ga="git add"
+alias gcm="git commit -m"
+alias gcb="git checkout -b"
+alias gpx="git push xen"
+alias gpom="git push origin main"
+alias gall="git push origin"
+
+alias gn="git init && gip && git add -A"
+
+function git_add_commit_push_main() {
+    git add -A
+    git commit -m $1
+    git push origin main
+}
+
+alias tm="tmux"
+alias tmn="tmux new -s"
+alias tma="tmux attach -t"
+alias tml="tmux ls"
+alias tms="tmux switch -t"
+alias tmd="tmux detach"
+alias tmk="tmux kill-session -t"
+
+alias t="tree . -I 'node_modules|venv|__pycache__|.git'"
+alias ra=ranger
+alias gip="curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore"
+alias gir="curl -o .gitignore https://raw.githubusercontent.com/facebook/react/refs/heads/main/.gitignore"
+alias gig="curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/main/Go.gitignore"
+alias gir="curl -o .gitignore https://raw.githubusercontent.com/facebook/react/main/.gitignore"
+alias c="code "
+alias cl="claude"
+alias pv="python -m venv venv && source venv/bin/activate && pip install --upgrade pip"
+alias rmr="rm -r"
+alias rmrf="rm -rf"
+alias sv="source venv/bin/activate"
+alias cat="batcat"
+# alias python="clear && python"
+#
+alias pr="pyright"
+
+
+alias pfr="pip freeze > requirements.txt"
+
+# Poetry
+alias p="poetry"
+alias pn="poetry new"
+alias pa="poetry add"
+alias pr="poetry run"
+alias pe="poetry env"
+alias ps="poetry shell"
+alias pi="poetry init"
+alias pin="poetry install"
+alias peu="poetry env use"
+
+
+alias awake="xset s off && xset -dpms"
+
+alias ti="touch __init__.py"
+
+alias dc="docker-compose"
+
+alias copy="xclip -selection clipboard"
+
+alias open="xdg-open"
+alias lazygit="/home/shaun/Applications/lazygit/lazygit"
+alias lg="lazygit"
+
+# make pandoc command that takes the first argument as the mardown file and the second as the output file
+function shaunpandoc() {
+    command pandoc "$1" -o "$2"
+}
+
+alias pd="pandoc"
+
+alias whs="wormhole send"
+alias whr="wormhole receive"
+
+export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/shaun/Documents/programs/x13/x13as
+# Rust
+alias cn="cargo new"
+alias cr="cargo run"
+alias cb="cargo build"
+alias ct="cargo test"
+alias ccl="cargo clean"
+alias cclb="cargo clean && cargo build"
+alias cclt="cargo clean && cargo test"
+alias cclrt="cargo clean && cargo run --test"
+
+# UV Core Commands
+alias uvi="uv init"           # Initialize project
+alias uvr="uv run"            # Run command in project env
+alias uva="uv add"            # Add dependency
+alias uvs="uv sync"           # Sync dependencies
+alias uvl="uv lock"           # Update lock file
+alias uvrm="uv remove"        # Remove dependency
+
+# Development & Testing
+alias uvc="uv check"          # Check project
+alias uvb="uv build"          # Build project
+alias uvt="uv test"           # Run tests (if configured)
+alias uvf="uv run ruff format"    # Format code
+alias uvlint="uv run ruff check"  # Lint code
+
+# Virtual Environment
+alias uvenv="uv venv"         # Create virtual environment
+alias uvact="source .venv/bin/activate"  # Activate venv
+
+# Python Management
+alias uvpy="uv python"        # Python version management
+alias uvpyi="uv python install"  # Install Python version
+alias uvpyl="uv python list"     # List Python versions
+
+# Package Management (pip replacement)
+alias uvpi="uv pip install"   # Fast pip install
+alias uvpu="uv pip uninstall" # Uninstall package
+alias uvpl="uv pip list"      # List packages
+alias uvpf="uv pip freeze"    # Freeze requirements
+alias uvpc="uv pip compile"   # Compile requirements
+
+# Tools (global installations)
+alias uvti="uv tool install"  # Install global tool
+alias uvtr="uv tool run"      # Run tool without installing
+alias uvtl="uv tool list"     # List installed tools
+alias uvtu="uv tool uninstall" # Uninstall global tool
+
+# Tree and Info
+alias uvtree="uv tree"        # Show dependency tree
+alias uvinfo="uv --version"   # Show uv version
+
+# Advanced/Shortcuts
+alias uvdev="uv add --dev"    # Add development dependency
+alias uvup="uv lock --upgrade" # Upgrade all dependencies
+alias uvclean="rm -rf .venv && uv sync" # Clean rebuild
+alias uvshell="uv run python" # Start Python shell
+alias uvreq="uv pip compile pyproject.toml -o requirements.txt" # Export requirements
+
+# Project shortcuts
+alias uvstart="uv init . && uv add ruff black pytest" # Quick project setup
+alias uvtest="uv run pytest -v"  # Verbose test run
+alias uvcover="uv run pytest --cov" # Test with coverage
+
+# Rapsberry pi
+alias sshdrb="ssh dr-barney@192.168.1.108"
+
+# QuantConnect
+alias qcm="cp /home/shaun/.config/make_files/QCMakeFileBackup Makefile"
+
+# Python Scipts
+function get_website_data() {
+    python ~/.config/pyscripts/get_website_data.py "$1" | copy
+}
+alias gwd="get_website_data"
+
+
+function mkdir_with_current_date() {
+    mkdir "$(date +%Y-%m-%d)"
+}
+
+function mk_service_structure() {
+    mkdir -p deployments/docker
+    touch deployments/docker/Dockerfile.dev
+    touch deployments/docker/Dockerfile.prod
+
+    mkdir -p deployments/kubernetes
+    touch deployments/kubernetes/app-dev.yaml
+    touch deployments/kubernetes/app-prod.yaml
+
+    mkdir -p documentation
+    touch documentation/README.md
+
+    mkdir -p service/abstract
+    touch service/abstract/__init__.py
+
+    mkdir -p service/configs
+    touch service/configs/__init__.py
+    touch service/configs/service_config.py
+
+    mkdir -p service/databases
+    touch service/databases/__init__.py
+
+    mkdir -p service/decorators
+    touch service/decorators/__init__.py
+
+    mkdir -p service/engines
+    touch service/engines/__init__.py
+
+    mkdir -p service/errors
+    touch service/errors/__init__.py
+
+    touch service/main.py
+
+    mkdir -p service/server
+    touch service/server/__init__.py
+
+    mkdir -p service/server/models
+    touch service/server/models/__init__.py
+
+    mkdir -p service/server/routers
+    touch service/server/routers/__init__.py
+}
+
+alias mkatomic=$HOME/.config/scripts/atomic_design.sh
+
+# Xenesis
+alias xenli="curl https://raw.githubusercontent.com/XenesisLimited/LICENCE/main/LICENSE >> LICENSE"
+alias xenrm="cp /home/shaun/Documents/Companies/Xenesis/templates/python/PythonBase/README.md README.md"
+
+alias mkpydirs="make_python_directories_and_init_files"
+function make_python_directories_and_init_files() {
+    pyenv local 3.9.13
+    python -m venv venv
+    source venv/bin/activate
+    pip install mypy autopep8 loguru
+    touch main.py Makefile README.md 
+    wget https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore -O .gitignore
+    git init
+    git add -A
+    git commit -m ":zap: Initial commit"
+    git branch -M main
+
+    mkdir args
+    touch args/__init__.py
+    touch args/parser.py
+
+    for dir in "$@"; do
+        mkdir -p "$dir"
+        touch "$dir/__init__.py"
+    done
+}
+
+
+
+ZSH_THEME="robbyrussell"
+
+plugins=(
+    git
+    zsh-autosuggestions
+    virtualenv
+)
+
+TREE_IGNORE="log|logs|node_modules|*.pyc|__pycache__|venv|target"
+
+
+
+
+
+function mkpytests() {
+    # Base directory for the Python modules
+    local base_dir="$1"
+
+    # Recursive function to create test directories and files
+    function create_tests() {
+        # Get the current directory
+        local dir="$1"
+
+        # Get all Python files in the current directory
+        for file in "${dir}"/*.py
+        do
+            if [[ -f "$file" ]]; then
+                # Remove the base_dir part from file path and .py extension
+                local base="${file#$base_dir/}"
+                base="${base%.py}"
+
+                # Create a test directory
+                local test_dir="tests/${base%/*}"
+                mkdir -p "${test_dir}"
+
+                # if it __init__.py file skip
+                if [[ "${base##*/}" == "__init__" ]]; then
+                    # first touch the __init__.py file
+                    touch "${test_dir}/__init__.py"
+                    continue
+                fi
+                # Create a test file in the test directory
+                touch "${test_dir}/test_${base##*/}.py"
+            fi
+        done
+
+        # Get all subdirectories in the current directory
+        for sub_dir in "${dir}"/*(/)
+        do
+            # Ignore any directory named 'tests'
+            if [[ "${sub_dir:t}" != "tests" ]]
+            then
+                create_tests "${sub_dir}"
+            fi
+        done
+    }
+
+    # Call the function with the base directory as the argument
+    create_tests "${base_dir}"
+
+    # move the tests directory to the base directory
+    mv tests "${base_dir}"
+}
+
+function pymktests() {
+    # Base directory for the Python modules
+    local base_dir="$1"
+    local test_dir="${base_dir}/tests"
+
+    # Recursive function to create missing test directories and files
+    function create_missing_tests() {
+        # Get the current directory
+        local dir="$1"
+
+        # Get all Python files in the current directory
+        for file in "${dir}"/*.py
+        do
+            if [[ -f "$file" ]]; then
+                # Remove the base_dir part from file path and .py extension
+                local base="${file#$base_dir/}"
+                base="${base%.py}"
+
+                # Corresponding test directory and file
+                local test_dir="${test_dir}/${base%/*}"
+                local test_file="${test_dir}/test_${base##*/}.py"
+
+                # if test directory or file doesn't exist, create them
+                if [[ ! -d "${test_dir}" || ! -f "${test_file}" ]]; then
+                    mkdir -p "${test_dir}"
+                    touch "${test_file}"
+                fi
+            fi
+        done
+
+        # Get all subdirectories in the current directory
+        for sub_dir in "${dir}"/*(/)
+        do
+            # Ignore any directory named 'tests'
+            if [[ "${sub_dir:t}" != "tests" ]]
+            then
+                create_missing_tests "${sub_dir}"
+            fi
+        done
+    }
+
+    # Call the function with the base directory as the argument
+    create_missing_tests "${base_dir}"
+}
+
+source $ZSH/oh-my-zsh.sh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias l='exa -la --icons --group-directories-first'
+alias ls='exa -l --icons'
+alias lr='exa -lRT -I ${TREE_IGNORE} --icons'
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
+# export PATH="$HOME/go/bin/protoc-gen-go-grpc:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+#
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/shaun/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/shaun/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/shaun/mambaforge/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/shaun/mambaforge/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/shaun/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/shaun/mambaforge/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+
+alias poetry=/home/shaun/.local/bin/poetry
+
+
+alias gc="gitmoji -c"
+alias share="WAYLAND_DISPLAY= alacritty"
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+export WINEARCH=win32
+export WINEPREFIX=~/.wine32
+export QCBACKUP="/home/shaun/Documents/Companies/Xenesis/QCBackUp"
+# v → Neovim 0.12 (~/.local/bin/nvim, the modular cyberdream/Claude config).
+# (Old aliases removed: /usr/local/bin/nvim was the stale 0.9 build; lvim was
+#  LunarVim, now uninstalled.)
+alias v=nvim
+alias vi=nvim
+alias vim=nvim
+
+alias moveMouse="python ~/scripts/mouse_mover/main.py"
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm                                                                                                                                                                                                                                                                                                                 │
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion  
+
+
+eval "$(gh copilot alias -- bash)"
+eval "$(gh copilot alias -- zsh)"
+export MODULAR_HOME="/home/shaun/.modular"
+export PATH="/home/shaun/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+alias fixscreens="/home/shaun/.screenlayout/main_layout.sh"
+fixscreens
+
+# --- Google Drive upload helper (rclone, remote "gdrive") ---
+# Usage: tocloud <file-or-dir> [destination-folder-in-drive]
+#   tocloud report.pdf            -> Drive root
+#   tocloud report.pdf Backups    -> Drive/Backups (folder auto-created)
+tocloud() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: tocloud <file-or-dir> [drive-folder]"
+    return 1
+  fi
+  rclone copy --progress "$1" "gdrive:${2:-}"
+}
+
+# Dotfiles are managed with chezmoi → https://github.com/shaunbarney/TheOneDots
+# (chezmoi aliases cm/cme/cma/cmd/cmcd/cmap defined near the top of this file)
+
+# ── Modern terminal stack (cyberdream) ────────────────────────────────
+# Starship prompt (overrides the oh-my-zsh theme; must come after o-m-z)
+eval "$(starship init zsh)"
+# zoxide — smarter cd: `z <partial-dir>` jumps, `zi` opens an fzf picker
+eval "$(zoxide init zsh)"
+# eza — modern ls with icons + git status
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first --git'
+alias la='eza -la --icons --group-directories-first --git'
+alias lt='eza --tree --level=2 --icons'
+alias l='eza -1 --icons'
+# bat — modern cat; ansi theme follows the terminal (cyberdream)
+export BAT_THEME="ansi"
+alias cat='bat --paging=never'
+# cl — fuzzy-pick a project and open a tmux session running claude
+alias cl='tmux-claude-launch'
+# Default editor → neovim. Claude Code's Ctrl+G (edit prompt/plan in external
+# editor) uses $EDITOR/$VISUAL; without these it auto-detected code/cursor.
+# nvim is terminal-based so it opens inside the current tmux pane.
+export EDITOR='nvim'
+export VISUAL='nvim'

@@ -1,0 +1,71 @@
+[PIPPIN_AGE]
+command=~/.config/i3blocks/pippin/pippin_age.py
+interval=86400
+
+[countdown]
+full_text= 🇹🇭
+command=$HOME/.config/i3blocks/countdown/countdown.sh
+interval=1
+markup=pango
+
+[F1]
+command=~/.config/i3blocks/F1/f1.py
+interval=3600
+color=#FF0000
+
+[HOUSING]
+command=~/.config/i3blocks/housing/housing.sh
+interval=3600  # Update every hour
+color=#32CD32  # LimeGreen for housing data
+separator_block_width=10
+markup=none
+
+[INTEREST_RATES]
+command=~/.config/i3blocks/interest_rates/rates.py
+interval=86400  # Run once a day (every 24 hours)
+color=#DAA520  # GoldenRod for interest rates
+
+[DISK]
+command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
+interval=2
+color=#4682B4  # SteelBlue for disk usage
+
+[CPU]
+full_text= 🖥️:  0.00% @ +00.0°C 
+command=~/.config/i3blocks/cpu/cpu_info.sh
+interval=repeat
+color=#1E90FF  # DodgerBlue for CPU info
+
+[MEM]
+command=free -h | awk '/Mem:/ { printf(" 🐏 %5s/%s \n", $3, $2) }'
+interval=1
+color=#9370DB  # MediumPurple for memory usage
+
+[VOLUME]
+command=~/.config/i3blocks/volume/volume.sh -o i3blocks
+interval=once
+color=#FF8C00  # DarkOrange for volume control
+separator_block_width=10
+markup=pango
+
+[NETWORK]
+label=🌐
+command=~/.config/i3blocks/network/network_info.sh
+interval=5
+color=#87CEEB  # SkyBlue for network info
+
+[TIME_DATE]
+label=🕒
+command=~/.config/i3blocks/date_time/date_time.sh
+interval=1
+color=#D3D3D3  # LightGrey for date and time
+
+[caffeine]
+command=~/.config/i3blocks/caffeine/caffeine_toggle.sh
+interval=5
+signal=10
+
+[MOUSE_MOVER]
+command=~/.config/i3blocks/mouse_mover/mouse_mover_toggle.sh
+interval=5
+signal=11

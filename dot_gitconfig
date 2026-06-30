@@ -1,0 +1,25 @@
+[user]
+	email = shaunbarney@outlook.com
+	name = shaunbarney
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+	syntax-theme = ansi
+	plus-style = "syntax #16331f"
+	minus-style = "syntax #3a1614"
+	plus-emph-style = "syntax #1f6e2e"
+	minus-emph-style = "syntax #7f1f1d"
+[merge]
+	conflictStyle = diff3

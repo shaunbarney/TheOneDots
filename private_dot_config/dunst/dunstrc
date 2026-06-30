@@ -1,0 +1,89 @@
+# dunst v1.13 — Cyberdream, sized for a 7680x2160 display
+# Reload: notifications re-read this on (re)start.
+
+[global]
+    monitor = 0
+    follow = mouse
+
+    # ── Geometry (big for a large, high-res screen) ──────────────────
+    width = (400, 700)
+    height = (0, 500)
+    origin = top-right
+    offset = (40, 60)
+    scale = 0
+    notification_limit = 6
+    gap_size = 10
+
+    # ── Progress bar (volume/brightness etc.) ────────────────────────
+    progress_bar = true
+    progress_bar_height = 20
+    progress_bar_frame_width = 2
+    progress_bar_min_width = 280
+    progress_bar_max_width = 680
+    progress_bar_corner_radius = 8
+
+    # ── Appearance ───────────────────────────────────────────────────
+    transparency = 8
+    corner_radius = 16
+    frame_width = 3
+    separator_height = 2
+    separator_color = frame
+    padding = 20
+    horizontal_padding = 24
+    text_icon_padding = 16
+    sort = yes
+    indicate_hidden = yes
+    idle_threshold = 0
+
+    # ── Text ─────────────────────────────────────────────────────────
+    font = JetBrainsMono Nerd Font 16
+    line_height = 6
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    # ── Icons ────────────────────────────────────────────────────────
+    enable_recursive_icon_lookup = true
+    icon_theme = "Adwaita"
+    icon_position = left
+    min_icon_size = 64
+    max_icon_size = 128
+    icon_corner_radius = 12
+
+    # ── Behaviour ────────────────────────────────────────────────────
+    sticky_history = yes
+    history_length = 30
+    title = Dunst
+    class = Dunst
+    corner_radius = 16
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#16181a"
+    foreground = "#7b8496"
+    frame_color = "#3c4048"
+    timeout = 6
+    default_icon = dialog-information
+
+[urgency_normal]
+    background = "#16181a"
+    foreground = "#ffffff"
+    frame_color = "#5ef1ff"
+    timeout = 8
+    default_icon = dialog-information
+
+[urgency_critical]
+    background = "#1c0f12"
+    foreground = "#ffffff"
+    frame_color = "#ff6e5e"
+    timeout = 0
+    default_icon = dialog-warning

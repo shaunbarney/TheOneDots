@@ -1,0 +1,64 @@
+#!/bin/zsh
+
+#function to create dir
+function dir_structure() {
+  mkdir -p cmd/httpserver
+  mkdir -p internal/core/domain
+  mkdir -p internal/core/errs
+  mkdir -p internal/core/ports
+  mkdir -p internal/core/services
+  mkdir -p internal/handlers
+  mkdir -p internal/logging
+  mkdir -p internal/repositories
+}
+
+function create_files() {
+  touch cmd/httpserver/main.go
+  touch internal/core/domain/domain.go
+  touch internal/core/errs/errs.go
+  touch internal/core/ports/ports.go
+  touch internal/core/services/services.go
+  touch internal/logging/logging.go
+}
+
+function create_readme() {
+  # get parent directory
+  parent_dir=$(dirname $(pwd))
+  # get parent directory of parent directory
+  parent_parent_dir=$(dirname $parent_dir)
+  # get parent parent directory name
+  parent_parent_dir_name=$(basename $parent_parent_dir)
+  # check is parent parent directory name is "server"
+  if [ $parent_parent_dir_name = "server" ]; then
+    # create readme file
+    touch README.md
+    # add header to readme file
+    echo "# $parent_parent_dir_name" >> README.md
+    echo "" >> README.md
+    echo "## $parent_dir_name" >> README.md
+    echo "" >> README.md
+    echo "### $dir_name" >> README.md
+    echo "" >> README.md
+    echo "* [$dir_name]($dir_name/README.md)" >> README.md
+  else
+    # create readme file
+    touch README.md
+    # add header to readme file
+    echo "# $parent_parent_dir_name" >> README.md
+    echo "" >> README.md
+    echo "## $parent_dir_name" >> README.md
+    echo "" >> README.md
+    echo "* [$parent_dir_name]($parent_dir_name/README.md)" >> README.md
+    echo "" >> README.md
+    echo "### $dir_name" >> README.md
+    echo "" >> README.md
+    echo "* [$dir_name]($dir_name/README.md)" >> README.md
+  fi
+}
+
+
+function mkhex() {
+  dir_structure
+  create_files
+  create_readme
+}

@@ -1,0 +1,19 @@
+# Files that live in the repo but must NOT be deployed into $HOME.
+# (chezmoi already ignores every source entry whose name starts with ".",
+#  so .git/, .gitignore, .githooks/ and friends are handled automatically.)
+
+README.md
+LICENSE
+CHANGELOG.md
+docs/**
+
+# ── Secrets: the REAL secrets file is never managed by chezmoi ──────────
+# Only the *.example template ships. See README → "Secrets".
+.config/zsh/secrets.zsh
+
+# ── Never manage machine-local Claude Code state ───────────────────────
+.claude/.credentials.json
+.claude/settings.local.json
+.claude/history.jsonl
+.claude/projects/**
+.claude/todos/**
