@@ -40,6 +40,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i /home/shaun/Pic
 exec --no-startup-id xset s off -dpms
 # NetworkManager tray applet.
 exec --no-startup-id nm-applet
+# Flameshot daemon — start once at login so the screenshot overlay (Print)
+# is always warm and opens instantly (no cold-start on first capture).
+exec --no-startup-id flameshot
 # Lock the display layout (DP-2 at 7680x2160 @ 120Hz).
 exec --no-startup-id ~/.screenlayout/main_layout.sh
 # Desktop widgets.
