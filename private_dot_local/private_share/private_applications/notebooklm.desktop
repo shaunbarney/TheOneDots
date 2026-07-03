@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NotebookLM
+Comment=Google NotebookLM — AI research and note-taking (Chrome app window)
+Exec=google-chrome-stable --app=https://notebooklm.google.com --class=notebooklm
+Icon=/home/shaun/.local/share/icons/notebooklm.svg
+Terminal=false
+StartupWMClass=notebooklm
+Categories=Office;
+Keywords=notebook;ai;research;notes;google;
