@@ -92,6 +92,16 @@ interval = "once"
 button = "left"
 cmd = "blueman-manager"
 
+# ── Claude Code agent skills (click → searchable rofi browser + AI) ──
+[[block]]
+block = "custom"
+command = "echo '{\"text\":\"📚 Skills\",\"state\":\"Idle\"}'"
+json = true
+interval = "once"
+[[block.click]]
+button = "left"
+cmd = "~/.config/i3status-rust/scripts/skills_browser.sh"
+
 # ── Bose soundbar (green ✓ while connected; left-click connects) ─────
 [[block]]
 block = "custom"
