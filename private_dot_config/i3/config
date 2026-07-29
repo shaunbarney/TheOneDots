@@ -60,6 +60,9 @@ bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT
 # Skills viewer (launched from the i3status-rust Skills block) floats.
 for_window [instance="skillsview"] floating enable, resize set 1400 900, move position center
 
+# Local LLM chat TUI (launched from the i3status-rust LLM block) floats.
+for_window [instance="llm-chat"] floating enable, resize set 1400 900, move position center
+
 # ── Applications ─────────────────────────────────────────────────────
 floating_modifier $mod
 bindsym $mod+Return exec alacritty
@@ -74,10 +77,15 @@ bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3blocks/mouse_mover/mouse_m
 bindsym Print        exec --no-startup-id flameshot gui
 
 # ── Focus ────────────────────────────────────────────────────────────
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# Seamless i3 ⇄ tmux: panes when in a tmux terminal, i3 focus otherwise
+# (vim-aware, edge-bounces back to i3). See ~/.local/bin/tmux-i3-nav.
+bindsym $mod+h exec --no-startup-id ~/.local/bin/tmux-i3-nav left
+bindsym $mod+j exec --no-startup-id ~/.local/bin/tmux-i3-nav down
+bindsym $mod+k exec --no-startup-id ~/.local/bin/tmux-i3-nav up
+bindsym $mod+l exec --no-startup-id ~/.local/bin/tmux-i3-nav right
+# Super+Ctrl+h/l — previous / next tmux window (tab)
+bindsym $mod+Ctrl+h exec --no-startup-id ~/.local/bin/tmux-i3-nav prev
+bindsym $mod+Ctrl+l exec --no-startup-id ~/.local/bin/tmux-i3-nav next
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up

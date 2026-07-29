@@ -113,6 +113,21 @@ button = "left"
 cmd = "~/.config/i3status-rust/scripts/bose_connect.sh"
 update = true
 
+# ── Local LLM (left-click opens chat; right-click toggles stack) ─────
+[[block]]
+block = "custom"
+command = "~/.config/i3status-rust/scripts/llm_status.sh"
+json = true
+interval = 10
+[[block.click]]
+button = "left"
+cmd = "~/.config/i3status-rust/scripts/llm_open.sh"
+update = true
+[[block.click]]
+button = "right"
+cmd = "~/.config/i3status-rust/scripts/llm_toggle.sh"
+update = true
+
 # ── Volume ───────────────────────────────────────────────────────────
 [[block]]
 block = "sound"

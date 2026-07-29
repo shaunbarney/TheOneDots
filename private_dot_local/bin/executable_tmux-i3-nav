@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# Seamless i3 ⇄ tmux navigation, bound in ~/.config/i3/config:
+#
+#   Super+h/j/k/l       → tmux pane in that direction when the focused
+#                         window is a terminal with a tmux client
+#                         (vim-aware; bounces to i3 focus at the edge),
+#                         plain i3 focus otherwise.
+#   Super+Ctrl+h/l      → previous / next tmux window (tab).
+#
+# Usage: tmux-i3-nav left|down|up|right|prev|next
+set -u
+dir="${1:-}"
+
+i3_focus() {
+    case "$dir" in
+        left|right|up|down) exec i3-msg -q "focus $dir";;
+        *) exit 0;;
+    esac
+}
+
+# ── Which tmux client (if any) lives in the focused window? ──────────
+# Focused X window → _NET_WM_PID → its child shell's tty → the tmux
+# client attached on that tty. Class-agnostic: works for any terminal.
+wid="$(xprop -root _NET_ACTIVE_WINDOW 2>/dev/null | awk '{print $NF}')"
+[ -n "${wid:-}" ] && [ "$wid" != "0x0" ] || i3_focus
+pid="$(xprop -id "$wid" _NET_WM_PID 2>/dev/null | awk '{print $NF}')"
+[[ "${pid:-}" =~ ^[0-9]+$ ]] || i3_focus
+
+clients="$(tmux list-clients -F '#{client_tty} #{client_session}' 2>/dev/null)"
+[ -n "$clients" ] || i3_focus
+
+sess=""
+for cpid in $(pgrep -P "$pid" 2>/dev/null); do
+    tty="$(ps -o tty= -p "$cpid" 2>/dev/null | tr -d ' ')"
+    [ -n "$tty" ] && [ "$tty" != "?" ] || continue
+    s="$(awk -v t="/dev/$tty" '$1==t{print $2; exit}' <<<"$clients")"
+    [ -n "$s" ] && { sess="$s"; break; }
+done
+[ -n "$sess" ] || i3_focus
+
+# ── Window (tab) switching ───────────────────────────────────────────
+case "$dir" in
+    prev) exec tmux previous-window -t "$sess";;
+    next) exec tmux next-window     -t "$sess";;
+esac
+
+# ── Pane navigation ──────────────────────────────────────────────────
+case "$dir" in
+    left)  flag=-L; edge='#{pane_at_left}';   vimkey=C-h;;
+    down)  flag=-D; edge='#{pane_at_bottom}'; vimkey=C-j;;
+    up)    flag=-U; edge='#{pane_at_top}';    vimkey=C-k;;
+    right) flag=-R; edge='#{pane_at_right}';  vimkey=C-l;;
+    *) exit 0;;
+esac
+
+# Inside (n)vim let vim-tmux-navigator handle the move (vim splits first).
+cmd="$(tmux display -t "$sess" -p '#{pane_current_command}')"
+if [[ "$cmd" =~ ^g?(view|n?vim?x?)(diff)?$ ]]; then
+    exec tmux send-keys -t "$sess" "$vimkey"
+fi
+
+# At the pane edge, fall through to i3 so focus flows out of the terminal.
+if [ "$(tmux display -t "$sess" -p "$edge")" = "1" ]; then
+    i3_focus
+fi
+exec tmux select-pane -t "$sess" "$flag"
